@@ -13,7 +13,7 @@ class PostsController extends AbstractController
 {
     /**
      * @Route("/registrar-posts", name="RegistrarPosts")
-     */
+    */
     public function index(Request $request)
     {
         $post = new Posts();
@@ -50,5 +50,15 @@ class PostsController extends AbstractController
         return $this->render('posts/index.html.twig', [
             'form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/post/{id}", name="VerPost")
+    */
+    public function verPost($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $post = $em->getRepository(Posts::class)->find($id);
+        return $this->render('posts/verPost.html.twig', ['post' =>$post]);
     }
 }

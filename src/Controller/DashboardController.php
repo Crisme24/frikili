@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Comentarios;
 use App\Entity\Posts;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -15,11 +16,17 @@ class DashboardController extends AbstractController
      */
     public function index(PaginatorInterface $paginator, Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
-        $query = $em->getRepository(Posts::class)->BuscarTodosLosPosts();
+        $user = $this->getUser(); //OBTENGO AL USUARIO ACTUALMENTE LOGUEADO
+
+        if ($user)
+        {
+            $em = $this->getDoctrine()->getManager();
+            $query = $em->getRepository(Posts::class)->BuscarTodosLosPosts();
 
         // $posts = $em->getRepository(Posts::class)->findAll();
         // $post = $em->getRepository(Posts::class)->find(1);
+
+        $comentarios = $em->getRepository(Comentarios::class)->BuscarComentarios($user->getId()); // Consulto los comentarios con el ID del usuario actualmente logueado
 
         $pagination = $paginator->paginate(
             $query, /* query NOT result */
@@ -30,5 +37,8 @@ class DashboardController extends AbstractController
         return $this->render('dashboard/index.html.twig', [
             'pagination' => $pagination
         ]);
+        } else {
+            return $this->redirectToRoute('app_login');
+        }
     }
 }

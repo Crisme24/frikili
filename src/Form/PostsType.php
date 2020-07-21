@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -15,13 +16,13 @@ class PostsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('titulo')
+            ->add('titulo', TextType::class, ['label' => 'Title'])
             // ->add('likes')
-            ->add('foto', FileType::class, ['label' => 'Seleccione una imagen'])
+            ->add('foto', FileType::class, ['label' => 'Select an image'])
             // ->add('fecha_publicacion')
-            ->add('contenido', TextareaType::class)
+            ->add('contenido', TextareaType::class, ['label' => 'Content'])
             // ->add('user')
-            ->add('Guardar', SubmitType::class)
+            ->add('Save', SubmitType::class)
         ;
     }
 

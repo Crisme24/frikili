@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
+
 class DashboardController extends AbstractController
 {
     /**
@@ -35,7 +36,8 @@ class DashboardController extends AbstractController
         );
 
         return $this->render('dashboard/index.html.twig', [
-            'pagination' => $pagination
+            'pagination' => $pagination,
+            'comentarios'=>$comentarios
         ]);
         } else {
             return $this->redirectToRoute('app_login');

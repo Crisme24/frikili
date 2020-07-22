@@ -17,10 +17,10 @@ class UserType extends AbstractType
         $builder
             ->add('email', EmailType::class)
             // ->add('roles')
-            ->add('password', PasswordType::class)
+            ->add('password', PasswordType::class, ['label' => 'Contraseña'])
             // ->add('baneado')
             ->add('nombre')
-            ->add('Registrar', SubmitType::class)
+            ->add('Crear', SubmitType::class)
         ;
     }
 

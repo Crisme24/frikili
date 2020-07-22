@@ -125,27 +125,35 @@ class Posts
         return $this;
     }
 
-    public function getUser(): ?int
+    /**
+     * @return mixed
+     */
+    public function getUser()
     {
         return $this->user;
     }
 
-    public function setUser($user): self
+    /**
+     * @param mixed $user
+     */
+    public function setUser($user): void
     {
         $this->user = $user;
-
-        return $this;
     }
 
-    public function getComentarios(): ?string
+    /**
+     * @return mixed
+     */
+    public function getComentarios()
     {
         return $this->comentarios;
     }
 
-    public function setComentarios(string $comentarios): self
+    /**
+     * @param mixed $comentarios
+     */
+    public function setComentarios($comentarios): void
     {
         $this->comentarios = $comentarios;
-
-        return $this;
     }
 }

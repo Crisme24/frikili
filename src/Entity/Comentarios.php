@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Comentarios
 {
+    const COMENTARIO_AGREGADO_EXITOSAMENTE = '¡Comment successfully added!';
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -21,11 +22,6 @@ class Comentarios
      * @ORM\Column(type="string", length=255)
      */
     private $comentario;
-
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    private $fecha_publicacion;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="comentarios")
@@ -54,15 +50,35 @@ class Comentarios
         return $this;
     }
 
-    public function getFechaPublicacion(): ?\DateTimeInterface
+    /**
+     * @return mixed
+     */
+    public function getUser()
     {
-        return $this->fecha_publicacion;
+        return $this->user;
     }
 
-    public function setFechaPublicacion(\DateTimeInterface $fecha_publicacion): self
+    /**
+     * @param mixed $user
+     */
+    public function setUser($user): void
     {
-        $this->fecha_publicacion = $fecha_publicacion;
+        $this->user = $user;
+    }
 
-        return $this;
+    /**
+     * @return mixed
+     */
+    public function getPosts()
+    {
+        return $this->posts;
+    }
+
+    /**
+     * @param mixed $posts
+     */
+    public function setPosts($posts): void
+    {
+        $this->posts = $posts;
     }
 }

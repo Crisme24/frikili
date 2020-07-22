@@ -7,14 +7,14 @@
 
   <div class="container">
         <div class="row">
-            <div class="col-md-8 cursor">
+            <div class="col-md-10 cursor ">
                 {% for post in pagination %}
-                <div class="bg-white rounded p-3 my-3"  onclick="window.location.href='{{ path('VerPost',{id:post.id}) }}'">
+                <div class="bg-lightk rounded p-3 my-3"  onclick="window.location.href='{{ path('VerPost',{id:post.id}) }}'">
                     <div class="d-flex bd-highlight">
                         <div class="p-2 flex-grow-1 bd-highlight">
                             <h3>{{post.titulo}}</h3>
-                            <div class="my-3 bg-yellow"> <i class="fa fa-user"></i><strong> Created by {{post.nombre}}</strong></div>
-                            <div class=" bg-green"><i class="far fa-clock"></i> <strong>Publication date: {{ post.fecha_publicacion | date }}</strong></div>
+                            <div class="my-2 bg-yellow"> <i class="fa fa-user"></i><strong> Creado por {{post.nombre}}</strong></div>
+                            <div class=" bg-green"><i class="far fa-clock"></i> <strong>Fecha de Publicación: {{ post.fecha_publicacion | date }}</strong></div>
                         </div>
                         <div class="p-2 bd-highlight">
                             <div class="align-self-center">
@@ -25,12 +25,7 @@
                 </div>
                 {% endfor %}
             </div>
-            <div class="col-md-4">
-                <div class="bg-white rounded p-3 my-3">
-                    <h4>Comments</h4>
 
-                </div>
-            </div>
         </div>
     </div>
     <div class="d-flex justify-content-center">

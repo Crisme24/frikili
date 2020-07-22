@@ -24,20 +24,23 @@
 }
 
 body {
-    background-image: url(https://i.pinimg.com/474x/f0/89/5b/f0895b2fb86fae21eac78d597d15deed.jpg);
+    background-image: url("../img/UI.png");
     background-color: white;
     background-repeat: no-repeat;
-    background-size: 15%;
-    background-position: right;
-    background-attachment: fixed;
-    font-family: signikaregular;
-    min-height: min-content;
+    background-position: left;
+    background-size: contain;
+    padding: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+
 
 }
 
 h1,h2,h3,h4,h5,h6{
     font-family: signikabold;
-    color: #000000;
+    color: #f65c78;
 }
 
 .navbar{
@@ -58,11 +61,11 @@ h1,h2,h3,h4,h5,h6{
 
 .fa-user, .bg-yellow {
     color: #ffd271;
-    font-size: 1em;
+    font-size: 1.3em;
 }
 .fa-clock, .bg-green{
     color: #c3f584;
-    font-size: 1em;
+    font-size: 1.3em;
 }
 
 .cursor:hover{
